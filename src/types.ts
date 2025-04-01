@@ -4,3 +4,5 @@ export type NoteData = {
   content: string;
   date: string;
 };
+
+export type NoteFormMode = "add" | "edit";

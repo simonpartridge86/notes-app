@@ -1,7 +1,8 @@
-import { NoteData } from "../types";
+import { NoteData, NoteFormMode } from "../types";
 
 type NoteFormProps = {
   closeModal: () => void;
+  formMode: NoteFormMode;
   formData: NoteData;
   setFormData: React.Dispatch<React.SetStateAction<NoteData>>;
 };
@@ -25,12 +26,6 @@ export const NoteForm = ({
     e.preventDefault();
     console.log("Form submitted", formData);
     closeModal();
-    setFormData({
-      id: "",
-      title: "",
-      content: "",
-      date: "",
-    });
   };
 
   return (

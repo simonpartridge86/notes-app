@@ -4,7 +4,7 @@ import { AddNote } from "./components/AddNote";
 import { Note } from "./components/Note";
 import { Modal } from "./components/Modal";
 import { NoteForm } from "./components/NoteForm";
-import { NoteData } from "./types";
+import { NoteData, NoteFormMode } from "./types";
 
 const mockNotes: NoteData[] = [
   {
@@ -28,36 +28,24 @@ const mockNotes: NoteData[] = [
 ];
 
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState<NoteData>({
+  const emptyFormData = {
     id: "",
     title: "",
     content: "",
     date: "",
-  });
+  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formMode, setFormMode] = useState<NoteFormMode>("add");
+  const [formData, setFormData] = useState<NoteData>(emptyFormData);
 
-  const handleAddNote = () => {
-    console.log("Add Note clicked");
+  const handleOpenModal = (mode: NoteFormMode, initialFormData: NoteData) => {
+    setFormData(initialFormData);
+    setFormMode(mode);
     setIsModalOpen(true);
   };
 
-  const handleEditNote = (noteData: NoteData) => {
-    console.log("Edit Note clicked", noteData.id);
-    setIsModalOpen(true);
-  };
-
-  const handleDeleteNote = (noteData: NoteData) => {
-    console.log("Delete Note clicked", noteData.id);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setFormData({
-      id: "",
-      title: "",
-      content: "",
-      date: "",
-    });
+  const handleDeleteNote = (noteId: string) => {
+    console.log("Delete Note clicked", noteId);
   };
 
   return (
@@ -66,25 +54,26 @@ export default function App() {
         <h1 className="page-title">Notes</h1>
       </header>
       <section className="notes-list">
-        <AddNote onClick={handleAddNote} />
+        <AddNote onClick={() => handleOpenModal("add", emptyFormData)} />
         {mockNotes.map((noteData) => (
           <Note
             key={noteData.id}
             noteData={noteData}
-            onEditNote={() => handleEditNote(noteData)}
-            onDeleteNote={() => handleDeleteNote(noteData)}
+            onEditNote={() => handleOpenModal("edit", noteData)}
+            onDeleteNote={() => handleDeleteNote(noteData.id)}
           />
         ))}
       </section>
       <Modal
-        title="Modal Title"
+        title={formMode === "add" ? "Add Note" : "Edit Note"}
         isModalOpen={isModalOpen}
-        closeModal={handleCloseModal}
+        closeModal={() => setIsModalOpen(false)}
       >
         <NoteForm
           formData={formData}
+          formMode={formMode}
           setFormData={setFormData}
-          closeModal={handleCloseModal}
+          closeModal={() => setIsModalOpen(false)}
         />
       </Modal>
     </main>
