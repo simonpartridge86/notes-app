@@ -3,32 +3,45 @@ import { IconButton } from "./IconButton";
 import { CrossIcon } from "./icons/CrossIcon";
 
 type ModalProps = {
-  openModal: boolean;
+  isModalOpen: boolean;
   closeModal: () => void;
   children: React.ReactNode;
   title: string;
 };
 
 export const Modal = ({
-  openModal,
+  isModalOpen,
   closeModal,
   children,
   title,
 }: ModalProps) => {
-  const ref = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (ref.current) {
-      if (openModal) {
-        ref.current.showModal();
-      } else {
-        ref.current.close();
+    const dialogElement = dialogRef.current;
+
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (dialogElement && e.target === dialogElement) {
+        closeModal();
       }
+    };
+
+    if (isModalOpen) {
+      dialogElement?.showModal();
+      dialogElement?.addEventListener("click", handleOutsideClick);
+      document.body.style.overflow = "hidden";
+    } else {
+      dialogElement?.close();
     }
-  }, [openModal]);
+
+    return () => {
+      dialogElement?.removeEventListener("click", handleOutsideClick);
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen, closeModal]);
 
   return (
-    <dialog ref={ref} onCancel={closeModal}>
+    <dialog ref={dialogRef} onCancel={closeModal}>
       <div className="modal-content">
         <header>
           <h4 className="modal-title">{title}</h4>

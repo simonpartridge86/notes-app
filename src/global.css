@@ -66,6 +66,9 @@
 }
 
 .icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   color: active;
   user-select: none;
@@ -89,6 +92,10 @@ dialog {
   border-radius: 0.5rem;
   background-color: lightyellow;
   padding: 0.5rem;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {

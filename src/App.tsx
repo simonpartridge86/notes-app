@@ -27,16 +27,16 @@ const mockNotes = [
 ];
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleAddNote = () => {
     console.log("Add Note clicked");
-    setModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const handleEditNote = (noteId: string) => {
     console.log("Edit Note clicked", noteId);
-    setModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const handleDeleteNote = (noteId: string) => {
@@ -63,8 +63,8 @@ export default function App() {
       </section>
       <Modal
         title="Modal Title"
-        openModal={modalOpen}
-        closeModal={() => setModalOpen(false)}
+        isModalOpen={isModalOpen}
+        closeModal={() => setIsModalOpen(false)}
       >
         <NoteForm />
       </Modal>
