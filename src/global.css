@@ -83,3 +83,26 @@
 .icon-button:active {
   color: black;
 }
+
+dialog {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: lightyellow;
+  padding: 0.5rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-title {
+  margin-block: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}

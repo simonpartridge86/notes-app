@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { AddNote } from "./components/AddNote";
 import { Note } from "./components/Note";
 import "./global.css";
+import { Modal } from "./components/Modal";
+import { NoteForm } from "./components/NoteForm";
 
 const mockNotes = [
   {
@@ -23,13 +26,17 @@ const mockNotes = [
   },
 ];
 
-function App() {
+export default function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const handleAddNote = () => {
     console.log("Add Note clicked");
+    setModalOpen(true);
   };
 
   const handleEditNote = (noteId: string) => {
     console.log("Edit Note clicked", noteId);
+    setModalOpen(true);
   };
 
   const handleDeleteNote = (noteId: string) => {
@@ -45,6 +52,7 @@ function App() {
         <AddNote onClick={handleAddNote} />
         {mockNotes.map((note) => (
           <Note
+            key={note.id}
             title={note.title}
             content={note.content}
             dueDate={note.dueDate}
@@ -53,8 +61,13 @@ function App() {
           />
         ))}
       </section>
+      <Modal
+        title="Modal Title"
+        openModal={modalOpen}
+        closeModal={() => setModalOpen(false)}
+      >
+        <NoteForm />
+      </Modal>
     </main>
   );
 }
-
-export default App;
