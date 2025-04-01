@@ -4,7 +4,8 @@
   align-items: start;
   justify-content: start;
   min-height: 100vh;
-  padding: 20px;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .app-header {
@@ -13,4 +14,41 @@
 
 .page-title {
   font-size: 2rem;
+}
+
+.notes-list {
+  display: grid;
+  width: 100%;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: yellow;
+}
+
+.add-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: yellow;
+  cursor: pointer;
+  user-select: none;
+}
+
+.add-note:hover {
+  background-color: lightyellow;
+}
+
+.add-note:active {
+  background-color: yellow;
 }
