@@ -26,10 +26,22 @@
 .note {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 200px;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background-color: yellow;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-actions {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .add-note {
@@ -51,4 +63,23 @@
 
 .add-note:active {
   background-color: yellow;
+}
+
+.icon-button {
+  cursor: pointer;
+  color: active;
+  user-select: none;
+
+  > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.icon-button:hover {
+  color: grey;
+}
+
+.icon-button:active {
+  color: black;
 }
