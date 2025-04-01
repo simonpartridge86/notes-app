@@ -1,28 +1,21 @@
+import { NoteData } from "../types";
 import { IconButton } from "./IconButton";
 import { DeleteIcon } from "./icons/DeleteIcon";
 import { EditIcon } from "./icons/EditIcon";
 
 type NoteProps = {
-  title: string;
-  content: string;
-  dueDate: string;
+  noteData: NoteData;
   onEditNote: () => void;
   onDeleteNote: () => void;
 };
 
-export const Note = ({
-  title,
-  content,
-  dueDate,
-  onEditNote,
-  onDeleteNote,
-}: NoteProps) => {
+export const Note = ({ noteData, onEditNote, onDeleteNote }: NoteProps) => {
   return (
     <div className="note">
-      <h3 className="note-title">{title}</h3>
-      <p className="note-content">{content}</p>
+      <h3 className="note-title">{noteData.title}</h3>
+      <p className="note-content">{noteData.content}</p>
       <div className="note-footer">
-        <p className="note-date">{dueDate}</p>
+        <p className="note-date">{noteData.date}</p>
         <div className="note-actions">
           <IconButton onClick={onEditNote} label="Edit Note">
             <EditIcon />

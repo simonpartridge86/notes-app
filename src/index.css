@@ -24,3 +24,10 @@ body {
 *::after {
   box-sizing: inherit;
 }
+
+textarea {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+input {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
