@@ -27,7 +27,7 @@ export const Note = ({ noteData, onEditNote, onDeleteNote }: NoteProps) => {
       <div className="note-footer">
         <div className="note-date-section">
           {isOverdue ? (
-            <span className="note-overdue">OVERDUE: {formattedDate}</span>
+            <span className="note-overdue">Overdue: {formattedDate}</span>
           ) : (
             <span>Due: {formattedDate}</span>
           )}

@@ -37,7 +37,7 @@ export default function App() {
       <header className="app-header">
         <h1 className="app-title">Notes</h1>
       </header>
-      <section className="notes-list">
+      <section className="notes-grid">
         <AddNote onClick={() => handleOpenModal("add", emptyFormData)} />
         {notes.map((noteData) => (
           <Note

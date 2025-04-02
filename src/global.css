@@ -21,15 +21,27 @@
   padding: 0 0.5rem;
 }
 
-.notes-list {
+.notes-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
   padding: 2rem;
   width: 100%;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%); /* Start slightly below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Move to normal position */
+  }
 }
 
 .note {
+  animation: fadeInFromTop 0.3s ease-in-out forwards;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,10 +96,10 @@
 
 .note-actions {
   display: flex;
-  gap: 0.25rem;
 }
 
 .add-note {
+  animation: fadeInFromTop 0.3s ease-in-out forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,8 +125,10 @@
   height: 3rem;
 }
 
-.add-note:hover {
+.add-note:hover,
+.add-note:focus {
   border: 2px solid var(--color-purple);
+  outline: 2px solid var(--color-white);
   box-shadow: var(--box-shadow-dark);
 }
 
@@ -126,7 +140,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.25rem;
+  margin: 0.25rem;
   user-select: none;
   border-radius: 4px;
   cursor: pointer;
@@ -146,7 +160,19 @@
   color: var(--color-purple);
 }
 
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 dialog {
+  animation: fadeInFromLeft 0.3s ease-in-out forwards;
   border: none;
   border-radius: 0.5rem;
   background-color: var(--color-white);
@@ -154,8 +180,18 @@ dialog {
   width: 400px;
 }
 
+@keyframes fadeInBlur {
+  0% {
+    backdrop-filter: blur(2px);
+  }
+  100% {
+    backdrop-filter: blur(10px);
+  }
+}
+
 dialog::backdrop {
   backdrop-filter: blur(10px);
+  animation: fadeInBlur 0.3s ease-in-out forwards;
 }
 
 .modal-content {
