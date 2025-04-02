@@ -1,4 +1,5 @@
-import { NoteData, NoteFormMode } from "../types";
+import classes from "./NoteForm.module.css";
+import { NoteData, NoteFormMode } from "../../types";
 import { v4 as uuidv4 } from "uuid";
 
 type NoteFormProps = {
@@ -51,45 +52,45 @@ export const NoteForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="note-form">
-      <div className="form-group">
+    <form onSubmit={handleSubmit} className={classes["note-form"]}>
+      <div className={classes["form-group"]}>
         <label>Title*</label>
         <input
           type="text"
           name="title"
           value={formData.title}
           onChange={handleChange}
-          className="form-input"
+          className={classes["form-input"]}
           required
         />
       </div>
-      <div className="form-group">
+      <div className={classes["form-group"]}>
         <label>Content</label>
         <textarea
           name="content"
           value={formData.content}
-          className="form-input"
+          className={classes["form-input"]}
           onChange={handleChange}
           maxLength={MAX_CONTENT_LENGTH}
           rows={6}
         />
-        <small className="form-input-count">
+        <small className={classes["form-input-count"]}>
           {formData.content.length} / {MAX_CONTENT_LENGTH}
         </small>
       </div>
-      <div className="form-group">
+      <div className={classes["form-group"]}>
         <label>Due Date*</label>
         <input
           type="date"
           name="date"
           value={formData.date}
           onChange={handleChange}
-          className="form-input"
+          className={classes["form-input"]}
           required
         />
       </div>
       <small>Fields marked with * are required</small>
-      <button type="submit" className="form-button">
+      <button type="submit" className={classes["form-button"]}>
         Submit
       </button>
     </form>

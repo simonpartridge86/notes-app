@@ -1,0 +1,23 @@
+.icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.25rem;
+  user-select: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.icon-button:hover {
+  color: var(--color-purple);
+}
+
+.icon-button:active {
+  transform: translateX(1px) translateY(1px) !important;
+  color: var(--color-purple);
+}

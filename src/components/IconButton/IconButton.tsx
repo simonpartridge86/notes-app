@@ -1,3 +1,4 @@
+import classes from "./IconButton.module.css";
 import { JSX } from "react";
 
 type IconButtonProps = {
@@ -9,7 +10,7 @@ type IconButtonProps = {
 export const IconButton = ({ children, onClick, label }: IconButtonProps) => {
   return (
     <div
-      className="icon-button"
+      className={classes["icon-button"]}
       role="button"
       tabIndex={0}
       onClick={onClick}

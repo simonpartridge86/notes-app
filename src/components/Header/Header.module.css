@@ -1,0 +1,15 @@
+.header {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 0 2rem;
+  box-shadow: var(--box-shadow-bottom);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 2rem;
+  color: var(--color-purple);
+  padding: 0 0.5rem;
+}

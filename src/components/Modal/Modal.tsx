@@ -1,6 +1,7 @@
+import classes from "./Modal.module.css";
 import { useEffect, useRef } from "react";
-import { IconButton } from "./IconButton";
-import { CrossIcon } from "./icons/CrossIcon";
+import { IconButton } from "../IconButton/IconButton";
+import { CrossIcon } from "../icons/CrossIcon";
 
 type ModalProps = {
   isModalOpen: boolean;
@@ -42,10 +43,10 @@ export const Modal = ({
 
   return (
     <dialog ref={dialogRef} onCancel={closeModal}>
-      <div className="modal-content">
+      <div className={classes["modal-content"]}>
         <header>
-          <h3 className="modal-title">{title}</h3>
-          <span className="modal-close">
+          <h3 className={classes["modal-title"]}>{title}</h3>
+          <span className={classes["modal-close"]}>
             <IconButton onClick={closeModal} label="Close Form">
               <CrossIcon />
             </IconButton>

@@ -1,13 +1,14 @@
-import { PlusIcon } from "./icons/PlusIcon";
+import classes from "./AddNoteButton.module.css";
+import { PlusIcon } from "../icons/PlusIcon";
 
-type AddNoteProps = {
+type AddNoteButtonProps = {
   onClick: () => void;
 };
 
-export const AddNote = ({ onClick }: AddNoteProps) => {
+export const AddNoteButton = ({ onClick }: AddNoteButtonProps) => {
   return (
     <div
-      className="add-note"
+      className={classes["add-note-button"]}
       role="button"
       tabIndex={0}
       onClick={onClick}
@@ -18,7 +19,7 @@ export const AddNote = ({ onClick }: AddNoteProps) => {
       }}
       aria-label="Add New Note"
     >
-      <span className="add-note-icon">
+      <span className={classes["add-note-icon"]}>
         <PlusIcon />
       </span>
       <h3>Add New Note</h3>
