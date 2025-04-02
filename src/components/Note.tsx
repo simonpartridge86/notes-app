@@ -10,12 +10,20 @@ type NoteProps = {
 };
 
 export const Note = ({ noteData, onEditNote, onDeleteNote }: NoteProps) => {
+  const today = new Date();
+  const noteDate = new Date(noteData.date);
+  const isOverdue = noteDate < today;
+
   return (
     <div className="note">
       <h3 className="note-title">{noteData.title}</h3>
       <p className="note-content">{noteData.content}</p>
       <div className="note-footer">
-        <p className="note-date">{noteData.date}</p>
+        {isOverdue ? (
+          <p>Overdue!!!</p>
+        ) : (
+          <p className="note-date">{noteData.date}</p>
+        )}
         <div className="note-actions">
           <IconButton onClick={onEditNote} label="Edit Note">
             <EditIcon />
