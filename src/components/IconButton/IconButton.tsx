@@ -20,6 +20,7 @@ export const IconButton = ({ children, onClick, label }: IconButtonProps) => {
         }
       }}
       aria-label={label}
+      title={label}
     >
       {children}
     </div>

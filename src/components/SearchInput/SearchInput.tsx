@@ -41,7 +41,7 @@ export const SearchInput = ({
         onBlur={() => setIsFocused(false)}
       />
       {searchQuery && (
-        <IconButton onClick={() => setSearchQuery("")} label="Close Form">
+        <IconButton onClick={() => setSearchQuery("")} label="Clear Search">
           <CrossIcon />
         </IconButton>
       )}
