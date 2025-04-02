@@ -4,6 +4,6 @@
   align-items: start;
   justify-content: start;
   min-height: 100vh;
-  background-color: var(--color-light-purple);
-  color: var(--color-black);
+  background-color: var(--color-accent);
+  color: var(--color-text);
 }

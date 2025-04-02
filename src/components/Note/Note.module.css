@@ -17,7 +17,7 @@
   height: 200px;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   box-shadow: var(--box-shadow-light);
 }
 
@@ -56,8 +56,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
-  background-color: var(--color-purple);
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
   padding: 0.5rem;
   border-radius: 4px;
   gap: 0.25rem;

@@ -7,7 +7,7 @@
 
 .modal-title {
   margin-block: 0;
-  color: var(--color-purple);
+  color: var(--color-secondary);
 }
 
 .modal-close {
@@ -19,7 +19,7 @@
 dialog {
   border: none;
   border-radius: 0.5rem;
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   padding: 0;
   width: 400px;
 }

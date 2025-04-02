@@ -14,10 +14,10 @@
 }
 
 .icon-button:hover {
-  color: var(--color-purple);
+  color: var(--color-secondary);
 }
 
 .icon-button:active {
   transform: translateX(1px) translateY(1px) !important;
-  color: var(--color-purple);
+  color: var(--color-secondary);
 }

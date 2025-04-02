@@ -9,6 +9,7 @@ import { Header } from "../Header/Header";
 import { NotesGrid } from "../NotesGrid/NotesGrid";
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [formMode, setFormMode] = useState<NoteFormMode>("add");
   const [formData, setFormData] = useState<NoteData>({
@@ -32,8 +33,13 @@ export default function App() {
   };
 
   return (
-    <main className={classes.app}>
-      <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+    <main className={classes.app} data-theme={darkMode ? "dark" : ""}>
+      <Header
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
       <NotesGrid
         searchQuery={searchQuery}
         notes={notes}

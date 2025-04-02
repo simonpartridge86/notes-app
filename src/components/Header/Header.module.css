@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   padding: 0 2rem;
   box-shadow: var(--box-shadow-bottom);
   display: flex;
@@ -8,8 +8,22 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
 .header-title {
   font-size: 2rem;
-  color: var(--color-purple);
+  color: var(--color-secondary);
   padding: 0 0.5rem;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
