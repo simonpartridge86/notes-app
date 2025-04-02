@@ -30,7 +30,7 @@
 }
 
 .note {
-  animation: fadeInFromTop 0.3s ease-in-out forwards;
+  animation: fadeInFromTop 0.4s ease-in-out forwards;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -88,7 +88,6 @@
 }
 
 .add-note {
-  animation: fadeInFromTop 0.3s ease-in-out forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,7 +121,7 @@
 }
 
 .add-note:active {
-  transform: translateX(2px) translateY(2px) !important;
+  transform: translateX(2px) translateY(2px);
 }
 
 .icon-button {
@@ -150,7 +149,7 @@
 }
 
 dialog {
-  animation: fadeInFromLeft 0.3s ease-in-out forwards;
+  /* animation: fadeInFromLeft 0.4s ease-in-out forwards; */
   border: none;
   border-radius: 0.5rem;
   background-color: var(--color-white);
@@ -159,8 +158,8 @@ dialog {
 }
 
 dialog::backdrop {
+  /* animation: fadeInBlur 0.4s ease-in-out forwards; */
   backdrop-filter: blur(10px);
-  animation: fadeInBlur 0.3s ease-in-out forwards;
 }
 
 .modal-content {

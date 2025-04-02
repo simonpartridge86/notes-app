@@ -71,3 +71,7 @@ input {
     backdrop-filter: blur(10px);
   }
 }
+
+::view-transition-group(root) {
+  animation-duration: 0.4s;
+}

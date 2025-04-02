@@ -6,6 +6,8 @@ import { Modal } from "./components/Modal";
 import { NoteForm } from "./components/NoteForm";
 import { NoteData, NoteFormMode } from "./types";
 import { useLocalStorageNotes } from "./hooks/useLocalStorageNotes";
+import { flushSync } from "react-dom";
+import { AppHeader } from "./components/AppHeader";
 
 export default function App() {
   const emptyFormData = {
@@ -24,7 +26,11 @@ export default function App() {
   const handleOpenModal = (mode: NoteFormMode, initialFormData: NoteData) => {
     setFormData(initialFormData);
     setFormMode(mode);
-    setIsModalOpen(true);
+    document.startViewTransition(() => {
+      flushSync(() => {
+        setIsModalOpen(true);
+      });
+    });
   };
 
   const handleDeleteNote = (id: string) => {
@@ -34,9 +40,7 @@ export default function App() {
 
   return (
     <main className="app-container">
-      <header className="app-header">
-        <h1 className="app-title">Notes</h1>
-      </header>
+      <AppHeader />
       <section className="notes-grid">
         <AddNote onClick={() => handleOpenModal("add", emptyFormData)} />
         {notes.map((noteData) => (
