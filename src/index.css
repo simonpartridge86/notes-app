@@ -40,3 +40,34 @@ textarea {
 input {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInBlur {
+  0% {
+    backdrop-filter: blur(2px);
+  }
+  100% {
+    backdrop-filter: blur(10px);
+  }
+}

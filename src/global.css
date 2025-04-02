@@ -29,17 +29,6 @@
   width: 100%;
 }
 
-@keyframes fadeInFromTop {
-  0% {
-    opacity: 0;
-    transform: translateY(-10%); /* Start slightly below */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Move to normal position */
-  }
-}
-
 .note {
   animation: fadeInFromTop 0.3s ease-in-out forwards;
   display: flex;
@@ -133,7 +122,7 @@
 }
 
 .add-note:active {
-  transform: translateX(2px) translateY(2px);
+  transform: translateX(2px) translateY(2px) !important;
 }
 
 .icon-button {
@@ -156,19 +145,8 @@
 }
 
 .icon-button:active {
-  transform: translateX(1px) translateY(1px);
+  transform: translateX(1px) translateY(1px) !important;
   color: var(--color-purple);
-}
-
-@keyframes fadeInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 dialog {
@@ -178,15 +156,6 @@ dialog {
   background-color: var(--color-white);
   padding: 0;
   width: 400px;
-}
-
-@keyframes fadeInBlur {
-  0% {
-    backdrop-filter: blur(2px);
-  }
-  100% {
-    backdrop-filter: blur(10px);
-  }
 }
 
 dialog::backdrop {
