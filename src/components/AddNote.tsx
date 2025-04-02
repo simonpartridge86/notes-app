@@ -18,8 +18,10 @@ export const AddNote = ({ onClick }: AddNoteProps) => {
       }}
       aria-label="Add New Note"
     >
-      <PlusIcon />
-      <p>Add New Note</p>
+      <span className="add-note-icon">
+        <PlusIcon />
+      </span>
+      <span>Add New Note</span>
     </div>
   );
 };
