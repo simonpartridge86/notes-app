@@ -13,6 +13,9 @@
   background-color: var(--color-white);
   padding: 0 2rem;
   box-shadow: var(--box-shadow-bottom);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .app-title {
@@ -231,4 +234,54 @@ dialog::backdrop {
 
 .form-input-count {
   align-self: end;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-light-purple);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 500px;
+  padding: 0.25rem 0.5rem;
+  cursor: text;
+}
+
+.search-input-container.focused {
+  outline: 1px solid var(--color-purple);
+  border: 1px solid var(--color-purple);
+  background-color: var(--color-light-grey);
+}
+
+.search-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: var(--color-purple);
+  user-select: none;
+  margin: 0.25rem;
+  flex-shrink: 0;
+}
+
+.search-input {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.no-notes-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 200px;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--color-purple);
+  font-weight: 500;
 }

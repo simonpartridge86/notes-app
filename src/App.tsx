@@ -1,5 +1,5 @@
 import "./global.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AddNote } from "./components/AddNote";
 import { Note } from "./components/Note";
 import { Modal } from "./components/Modal";
@@ -17,11 +17,26 @@ export default function App() {
     date: "",
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [formMode, setFormMode] = useState<NoteFormMode>("add");
   const [formData, setFormData] = useState<NoteData>(emptyFormData);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const [notes, setNotes] = useLocalStorageNotes();
+
+  const filteredNotes = useMemo(() => {
+    if (searchQuery) {
+      const searchValue = searchQuery.toLowerCase().trim();
+      const filteredData = notes?.filter(
+        ({ title, content }) =>
+          title.toLowerCase().includes(searchValue) ||
+          content.toLowerCase().includes(searchValue)
+      );
+      return filteredData;
+    }
+
+    return notes;
+  }, [notes, searchQuery]);
 
   const handleOpenModal = (mode: NoteFormMode, initialFormData: NoteData) => {
     setFormData(initialFormData);
@@ -40,10 +55,10 @@ export default function App() {
 
   return (
     <main className="app-container">
-      <AppHeader />
+      <AppHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <section className="notes-grid">
         <AddNote onClick={() => handleOpenModal("add", emptyFormData)} />
-        {notes.map((noteData) => (
+        {filteredNotes.map((noteData) => (
           <Note
             key={noteData.id}
             noteData={noteData}
@@ -51,6 +66,9 @@ export default function App() {
             onDeleteNote={() => handleDeleteNote(noteData.id)}
           />
         ))}
+        {searchQuery && filteredNotes.length === 0 && (
+          <div className="no-notes-text">No notes match the current search</div>
+        )}
       </section>
       <Modal
         title={formMode === "add" ? "Add Note" : "Edit Note"}
