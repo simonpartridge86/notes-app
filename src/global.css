@@ -4,23 +4,26 @@
   align-items: start;
   justify-content: start;
   min-height: 100vh;
-  padding: 1rem;
-  gap: 1rem;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-light-purple);
   color: var(--color-black);
 }
 
 .app-header {
   width: 100%;
+  background-color: var(--color-white);
+  padding: 0 2rem;
+  box-shadow: var(--box-shadow-bottom);
 }
 
-.page-title {
+.app-title {
   font-size: 2rem;
   color: var(--color-purple);
+  padding: 0 0.5rem;
 }
 
 .notes-list {
   display: grid;
+  padding: 2rem;
   width: 100%;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -31,7 +34,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow-light);
@@ -39,6 +42,9 @@
 
 .note-title {
   margin-block: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .note-content {
@@ -55,10 +61,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  > p {
-    margin-block: 0.5rem;
-  }
+.note-date-section {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.note-overdue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: var(--color-purple);
+  padding: 0.5rem;
+  border-radius: 4px;
+  gap: 0.25rem;
 }
 
 .note-actions {
@@ -81,6 +102,10 @@
   box-shadow: var(--box-shadow-light);
   font-weight: bold;
   color: var(--color-purple);
+
+  > h3 {
+    margin-block: 0;
+  }
 }
 
 .add-note-icon {
@@ -130,7 +155,7 @@ dialog {
 }
 
 dialog::backdrop {
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
 }
 
 .modal-content {
@@ -142,6 +167,7 @@ dialog::backdrop {
 
 .modal-title {
   margin-block: 0;
+  color: var(--color-purple);
 }
 
 .modal-close {
@@ -171,23 +197,32 @@ dialog::backdrop {
   resize: none;
 }
 
+.form-input:focus {
+  outline: 1px solid var(--color-purple);
+  border: 1px solid var(--color-purple);
+}
+
 .form-button {
   width: 100%;
   background: var(--color-purple);
-  color: white;
+  color: var(--color-white);
   padding: 10px;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
 }
 
 .form-button:hover {
-  background: var(--color-light-purple);
+  background: var(--color-white);
+  border: 2px solid var(--color-purple);
+  color: var(--color-purple);
 }
 
 .form-button:active {
   background: var(--color-purple);
+  border: 2px solid transparent;
+  color: var(--color-white);
 }
 
 .form-input-count {

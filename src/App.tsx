@@ -35,7 +35,7 @@ export default function App() {
   return (
     <main className="app-container">
       <header className="app-header">
-        <h1 className="page-title">Notes</h1>
+        <h1 className="app-title">Notes</h1>
       </header>
       <section className="notes-list">
         <AddNote onClick={() => handleOpenModal("add", emptyFormData)} />

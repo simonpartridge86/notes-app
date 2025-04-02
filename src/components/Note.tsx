@@ -25,7 +25,13 @@ export const Note = ({ noteData, onEditNote, onDeleteNote }: NoteProps) => {
       <h3 className="note-title">{noteData.title}</h3>
       <div className="note-content">{noteData.content}</div>
       <div className="note-footer">
-        <p className="note-date">{formattedDate}</p>
+        <div className="note-date-section">
+          {isOverdue ? (
+            <span className="note-overdue">OVERDUE: {formattedDate}</span>
+          ) : (
+            <span>Due: {formattedDate}</span>
+          )}
+        </div>
         <div className="note-actions">
           <IconButton onClick={onEditNote} label="Edit Note">
             <EditIcon />

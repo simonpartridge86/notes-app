@@ -44,7 +44,7 @@ export const Modal = ({
     <dialog ref={dialogRef} onCancel={closeModal}>
       <div className="modal-content">
         <header>
-          <h4 className="modal-title">{title}</h4>
+          <h3 className="modal-title">{title}</h3>
           <span className="modal-close">
             <IconButton onClick={closeModal} label="Close Form">
               <CrossIcon />

@@ -53,7 +53,7 @@ export const NoteForm = ({
   return (
     <form onSubmit={handleSubmit} className="note-form">
       <div className="form-group">
-        <label>Title *</label>
+        <label>Title*</label>
         <input
           type="text"
           name="title"
@@ -78,7 +78,7 @@ export const NoteForm = ({
         </small>
       </div>
       <div className="form-group">
-        <label>Due Date *</label>
+        <label>Due Date*</label>
         <input
           type="date"
           name="date"
@@ -88,7 +88,7 @@ export const NoteForm = ({
           required
         />
       </div>
-      <small>* required</small>
+      <small>Fields marked with * are required</small>
       <button type="submit" className="form-button">
         Submit
       </button>

@@ -21,7 +21,7 @@ export const AddNote = ({ onClick }: AddNoteProps) => {
       <span className="add-note-icon">
         <PlusIcon />
       </span>
-      <span>Add New Note</span>
+      <h3>Add New Note</h3>
     </div>
   );
 };
