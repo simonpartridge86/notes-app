@@ -28,14 +28,14 @@ export const Modal = ({
 
     if (isModalOpen) {
       dialogElement?.showModal();
-      dialogElement?.addEventListener("click", handleOutsideClick);
+      dialogElement?.addEventListener("mousedown", handleOutsideClick);
       document.body.style.overflow = "hidden";
     } else {
       dialogElement?.close();
     }
 
     return () => {
-      dialogElement?.removeEventListener("click", handleOutsideClick);
+      dialogElement?.removeEventListener("mousedown", handleOutsideClick);
       document.body.style.overflow = "";
     };
   }, [isModalOpen, closeModal]);

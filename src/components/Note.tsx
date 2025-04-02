@@ -14,16 +14,18 @@ export const Note = ({ noteData, onEditNote, onDeleteNote }: NoteProps) => {
   const noteDate = new Date(noteData.date);
   const isOverdue = noteDate < today;
 
+  const formattedDate = noteDate.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
     <div className="note">
       <h3 className="note-title">{noteData.title}</h3>
-      <p className="note-content">{noteData.content}</p>
+      <div className="note-content">{noteData.content}</div>
       <div className="note-footer">
-        {isOverdue ? (
-          <p>Overdue!!!</p>
-        ) : (
-          <p className="note-date">{noteData.date}</p>
-        )}
+        <p className="note-date">{formattedDate}</p>
         <div className="note-actions">
           <IconButton onClick={onEditNote} label="Edit Note">
             <EditIcon />

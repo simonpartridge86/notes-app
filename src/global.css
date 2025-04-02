@@ -31,16 +31,34 @@
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   background-color: var(--color-white);
   box-shadow: var(--box-shadow-light);
+}
+
+.note-title {
+  margin-block: 0.5rem;
+}
+
+.note-content {
+  line-height: 1.1rem;
+  height: 5.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .note-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  > p {
+    margin-block: 0.5rem;
+  }
 }
 
 .note-actions {
