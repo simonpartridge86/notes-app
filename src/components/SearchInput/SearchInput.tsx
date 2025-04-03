@@ -1,5 +1,5 @@
 import classes from "./SearchInput.module.css";
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useRef } from "react";
 import { SearchIcon } from "../icons/SearchIcon";
 import { IconButton } from "../IconButton/IconButton";
 import { CrossIcon } from "../icons/CrossIcon";
@@ -13,7 +13,6 @@ export const SearchInput = ({
   searchQuery,
   setSearchQuery,
 }: SearchInputProps) => {
-  const [isFocused, setIsFocused] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,9 +21,7 @@ export const SearchInput = ({
 
   return (
     <div
-      className={`${classes["search-container"]} ${
-        isFocused ? classes.focused : ""
-      }`}
+      className={classes["search-container"]}
       onClick={() => searchInputRef.current?.focus()}
     >
       <span className={classes["search-icon"]}>
@@ -37,8 +34,6 @@ export const SearchInput = ({
         placeholder="Search notes..."
         className={classes["search-input"]}
         ref={searchInputRef}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
       />
       {searchQuery && (
         <IconButton onClick={() => setSearchQuery("")} label="Clear Search">
