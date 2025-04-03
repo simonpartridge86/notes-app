@@ -22,7 +22,8 @@
 }
 
 .note-title {
-  margin-block: 0.5rem;
+  margin-block: 0rem;
+  padding: 0.5rem 0rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
